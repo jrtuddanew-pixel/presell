@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Antes de continuar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Antes de continuar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- TikTok Pixel Code Start -->
+<!-- TikTok Pixel -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
@@ -28,7 +28,7 @@
   ttq.page();
 }(window, document, 'ttq');
 </script>
-<!-- TikTok Pixel Code End -->
+<!-- End TikTok Pixel -->
 
 <style>
 body{font-family:Arial;background:#fff;margin:0;display:flex;justify-content:center;align-items:center;height:100vh}
@@ -44,55 +44,43 @@ button:hover{background:#147ac6}
 
 <div class="box">
   <h1>Antes de continuar, leia com atenção</h1>
-
   <p>
     ✔️ Este conteúdo não promete dinheiro fácil<br>
     ✔️ Os resultados dependem da aplicação do método<br>
     ✔️ Indicado para iniciantes, mesmo sem experiência
   </p>
-
   <button id="btnCheckout">Quero acessar agora</button>
 </div>
 
 <script>
-/* ViewContent ao carregar página */
-document.addEventListener("DOMContentLoaded", function(){
-  ttq.track('ViewContent',{
+const produto = {
+  content_id: 'SM297',
+  content_name: 'Sistema Milionário',
+  content_type: 'product',
+  value: 297.00,
+  currency: 'BRL',
+  contents: [{
     content_id: 'SM297',
-    content_type: 'product',
     content_name: 'Sistema Milionário',
-    value: 297.00,
-    currency: 'BRL',
-    contents: [{
-      content_id: 'SM297',
-      content_name: 'Sistema Milionário',
-      price: 297.00,
-      quantity: 1
-    }]
-  });
+    price: 297.00,
+    quantity: 1
+  }]
+};
+
+// 🔥 ViewContent automático ao carregar página
+window.addEventListener("load", function(){
+  ttq.track('ViewContent', produto);
 });
 
-/* AddToCart no clique do botão */
+// AddToCart ao clicar no botão
 document.getElementById("btnCheckout").addEventListener("click", function(e){
   e.preventDefault();
 
-  ttq.track('AddToCart',{
-    content_id: 'SM297',
-    content_type: 'product',
-    content_name: 'Sistema Milionário',
-    value: 297.00,
-    currency: 'BRL',
-    contents: [{
-      content_id: 'SM297',
-      content_name: 'Sistema Milionário',
-      price: 297.00,
-      quantity: 1
-    }]
-  });
+  ttq.track('AddToCart', produto);
 
   setTimeout(function(){
-    window.location.href="https://kiwify.app/xOLgXNT?afid=YCAHrxJ4";
-  },1200);
+    window.location.href = "https://kiwify.app/xOLgXNT?afid=YCAHrxJ4";
+  }, 1200);
 });
 </script>
 
