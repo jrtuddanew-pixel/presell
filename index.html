@@ -1,88 +1,57 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<title>Antes de continuar</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- TikTok Pixel -->
 <script>
 !function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  w.TiktokAnalyticsObject=t;
+  var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
   ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
-  ttq.load=function(e,n){
-    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
-    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
-    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
-    ttq._o=ttq._o||{};ttq._o[e]=n||{};
-    var s=document.createElement("script");
-    s.type="text/javascript";s.async=!0;
-    s.src=r+"?sdkid="+e+"&lib="+t;
-    var x=document.getElementsByTagName("script")[0];
-    x.parentNode.insertBefore(s,x)
+  for(var i=0;i<ttq.methods.length;i++) ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){
+    for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++) ttq.setAndDefer(e,ttq.methods[n]);
+    return e
   };
-  ttq.load('D5CI2DRC77UD75S4P8NG');
+  ttq.load=function(e,n){
+    var i="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};
+    ttq._i[e]=[];
+    ttq._i[e]._u=i;
+    ttq._t=ttq._t||{};
+    ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};
+    ttq._o[e]=n||{};
+    var o=d.createElement("script");
+    o.type="text/javascript";
+    o.async=!0;
+    o.src=i+"?sdkid="+e+"&lib="+t;
+    var a=d.getElementsByTagName("script")[0];
+    a.parentNode.insertBefore(o,a)
+  };
+
+  ttq.load('D5C2DRC77UD7S54P8NG');
   ttq.page();
+
 }(window, document, 'ttq');
-</script>
-<!-- End TikTok Pixel -->
 
-<style>
-body{font-family:Arial;background:#fff;margin:0;display:flex;justify-content:center;align-items:center;height:100vh}
-.box{max-width:420px;padding:30px;text-align:center;border-radius:10px;box-shadow:0 0 20px rgba(0,0,0,.08)}
-h1{font-size:22px;margin-bottom:20px}
-p{font-size:15px;color:#333;margin-bottom:20px;text-align:left}
-button{background:#1d9bf0;color:#fff;border:none;padding:15px;font-size:16px;border-radius:6px;cursor:pointer;width:100%}
-button:hover{background:#147ac6}
-</style>
-</head>
 
-<body>
-
-<div class="box">
-  <h1>Antes de continuar, leia com atenção</h1>
-  <p>
-    ✔️ Este conteúdo não promete dinheiro fácil<br>
-    ✔️ Os resultados dependem da aplicação do método<br>
-    ✔️ Indicado para iniciantes, mesmo sem experiência
-  </p>
-  <button id="btnCheckout">Quero acessar agora</button>
-</div>
-
-<script>
-const produto = {
-  content_id: 'SM297',
-  content_name: 'Sistema Milionário',
+// 🚀 VIEW CONTENT automático ao carregar
+ttq.track('ViewContent', {
+  content_id: 'sistema_milion',
   content_type: 'product',
-  value: 297.00,
-  currency: 'BRL',
-  contents: [{
-    content_id: 'SM297',
-    content_name: 'Sistema Milionário',
-    price: 297.00,
-    quantity: 1
-  }]
-};
-
-// 🔥 ViewContent automático ao carregar página
-window.addEventListener("load", function(){
-  ttq.track('ViewContent', produto);
+  value: 97,
+  currency: 'BRL'
 });
 
-// AddToCart ao clicar no botão
-document.getElementById("btnCheckout").addEventListener("click", function(e){
-  e.preventDefault();
-
-  ttq.track('AddToCart', produto);
-
-  setTimeout(function(){
-    window.location.href = "https://kiwify.app/xOLgXNT?afid=YCAHrxJ4";
-  }, 1200);
+// 🛒 Add to Cart
+document.addEventListener("DOMContentLoaded", function() {
+  const btn = document.getElementById("addToCart");
+  if(btn){
+    btn.addEventListener("click", function(){
+      ttq.track('AddToCart', {
+        content_id: 'sistema_milion',
+        content_type: 'product',
+        value: 97,
+        currency: 'BRL'
+      });
+    });
+  }
 });
 </script>
-
-</body>
-</html>
