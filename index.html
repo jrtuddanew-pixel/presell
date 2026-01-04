@@ -59,16 +59,22 @@ document.getElementById("btnCheckout").addEventListener("click", function(e){
   e.preventDefault();
 
   ttq.track('AddToCart',{
-    content_id: 'sistema_milionario',
+    content_id: 'SM297',
     content_type: 'product',
     content_name: 'Sistema Milionário',
-    value: 1,
-    currency: 'BRL'
+    value: 297.00,
+    currency: 'BRL',
+    contents: [{
+      content_id: 'SM297',
+      content_name: 'Sistema Milionário',
+      price: 297.00,
+      quantity: 1
+    }]
   });
 
   setTimeout(function(){
     window.location.href="https://kiwify.app/xOLgXNT?afid=YCAHrxJ4";
-  },1500);
+  },1200);
 });
 </script>
 
