@@ -5,94 +5,57 @@
   <title>Antes de continuar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TikTok Pixel Code Start -->
+<!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
 var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
 ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-
   ttq.load('D5CI2DRC77UD75S4P8NG');
   ttq.page();
 }(window, document, 'ttq');
 </script>
 <!-- TikTok Pixel Code End -->
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .box {
-      max-width: 420px;
-      padding: 30px;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.08);
-    }
-    h1 {
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 15px;
-      color: #333;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-    button {
-      background: #1d9bf0;
-      color: #fff;
-      border: none;
-      padding: 15px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 100%;
-    }
-    button:hover {
-      background: #147ac6;
-    }
-  </style>
+<style>
+body{font-family:Arial;background:#fff;margin:0;display:flex;justify-content:center;align-items:center;height:100vh}
+.box{max-width:420px;padding:30px;text-align:center;border-radius:10px;box-shadow:0 0 20px rgba(0,0,0,.08)}
+h1{font-size:22px;margin-bottom:20px}
+p{font-size:15px;color:#333;margin-bottom:20px;text-align:left}
+button{background:#1d9bf0;color:#fff;border:none;padding:15px;font-size:16px;border-radius:6px;cursor:pointer;width:100%}
+button:hover{background:#147ac6}
+</style>
 </head>
+
 <body>
 
-  <div class="box">
-    <h1>Antes de continuar, leia com atenção</h1>
+<div class="box">
+  <h1>Antes de continuar, leia com atenção</h1>
 
-    <p>
-      ✔️ Este conteúdo não promete dinheiro fácil<br>
-      ✔️ Os resultados dependem da aplicação do método<br>
-      ✔️ Indicado para iniciantes, mesmo sem experiência
-    </p>
+  <p>
+    ✔️ Este conteúdo não promete dinheiro fácil<br>
+    ✔️ Os resultados dependem da aplicação do método<br>
+    ✔️ Indicado para iniciantes, mesmo sem experiência
+  </p>
 
-    <button id="btnCheckout">Quero acessar agora</button>
+  <button id="btnCheckout">Quero acessar agora</button>
+</div>
 
 <script>
-document.getElementById("btnCheckout").addEventListener("click", function(e) {
+document.getElementById("btnCheckout").addEventListener("click", function(e){
   e.preventDefault();
 
-  tta.track('AddToCart', {
-    content_name: 'Sistema Milionário',
-    value: 1,
-    currency: 'BRL'
+  ttq.track('AddToCart',{
+    content_name:'Sistema Milionário',
+    value:1,
+    currency:'BRL'
   });
 
-  setTimeout(function() {
-    window.location.href = "https://kiwify.app/xOLgXNT?afid=YCAHrxJ4";
-  }, 1200);
+  setTimeout(function(){
+    window.location.href="https://kiwify.app/xOLgXNT?afid=YCAHrxJ4";
+  },1500);
 });
 </script>
-Quero acessar agora
-    </button>
-  </div>
 
 </body>
 </html>
