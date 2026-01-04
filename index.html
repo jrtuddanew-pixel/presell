@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Antes de continuar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Antes de continuar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- TikTok Pixel Code Start -->
+<!-- TikTok Pixel Code -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
   ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
   ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
   for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
-  ttq.load=function(e,n){
-    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
-    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
-    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
-    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+  ttq.load=function(e){
     var s=document.createElement("script");
-    s.type="text/javascript";s.async=!0;
-    s.src=r+"?sdkid="+e+"&lib="+t;
+    s.type="text/javascript";s.async=true;
+    s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;
     var x=document.getElementsByTagName("script")[0];
-    x.parentNode.insertBefore(s,x)
+    x.parentNode.insertBefore(s,x);
   };
   ttq.load('D5CI2DRC77UD75S4P8NG');
   ttq.page();
 }(window, document, 'ttq');
 </script>
-<!-- TikTok Pixel Code End -->
+
+<!-- ViewContent obrigatório -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  ttq.track('ViewContent',{
+    content_id: 'SM297',
+    content_type: 'product',
+    content_name: 'Sistema Milionário',
+    value: 297.00,
+    currency: 'BRL',
+    contents: [{
+      content_id: 'SM297',
+      content_name: 'Sistema Milionário',
+      price: 297.00,
+      quantity: 1
+    }]
+  });
+});
+</script>
 
 <style>
 body{font-family:Arial;background:#fff;margin:0;display:flex;justify-content:center;align-items:center;height:100vh}
@@ -43,19 +56,17 @@ button:hover{background:#147ac6}
 <body>
 
 <div class="box">
-  <h1>Antes de continuar, leia com atenção</h1>
-
-  <p>
-    ✔️ Este conteúdo não promete dinheiro fácil<br>
-    ✔️ Os resultados dependem da aplicação do método<br>
-    ✔️ Indicado para iniciantes, mesmo sem experiência
-  </p>
-
-  <button id="btnCheckout">Quero acessar agora</button>
+<h1>Antes de continuar, leia com atenção</h1>
+<p>
+✔️ Este conteúdo não promete dinheiro fácil<br>
+✔️ Os resultados dependem da aplicação do método<br>
+✔️ Indicado para iniciantes, mesmo sem experiência
+</p>
+<button id="btnCheckout">Quero acessar agora</button>
 </div>
 
 <script>
-document.getElementById("btnCheckout").addEventListener("click", function(e){
+document.getElementById("btnCheckout").addEventListener("click",function(e){
   e.preventDefault();
 
   ttq.track('AddToCart',{
