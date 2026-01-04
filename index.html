@@ -1,26 +1,16 @@
 <script>
-/* ================================
-   TIKTOK PIXEL – SETUP COMPLETO
-   ================================ */
-(function (w, d, t) {
+!function (w, d, t) {
   w.TiktokAnalyticsObject = t;
   var ttq = w[t] = w[t] || [];
-  ttq.methods = [
-    "page","track","identify","instances","debug","on","off",
-    "once","ready","alias","group","enableCookie","disableCookie"
-  ];
+  ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
   ttq.setAndDefer = function(t, e){
     t[e] = function(){
       t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
     }
   };
-  for (var i = 0; i < ttq.methods.length; i++) {
-    ttq.setAndDefer(ttq, ttq.methods[i]);
-  }
+  for(var i=0; i<ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
   ttq.instance = function(t){
-    for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) {
-      ttq.setAndDefer(e, ttq.methods[n]);
-    }
+    for(var e=ttq._i[t] || [], n=0; n<ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
     return e;
   };
   ttq.load = function(e, n){
@@ -34,56 +24,52 @@
     ttq._o[e] = n || {};
     var o = d.createElement("script");
     o.type = "text/javascript";
-    o.async = true;
+    o.async = !0;
     o.src = i + "?sdkid=" + e + "&lib=" + t;
     var a = d.getElementsByTagName("script")[0];
     a.parentNode.insertBefore(o, a);
   };
 
-  /* 🔑 SEU PIXEL */
   ttq.load('D5C2DRC77UD7S54P8NG');
   ttq.page();
 
-  /* ================================
-     VIEW CONTENT – PRESSELL
-     ================================ */
-  ttq.track('ViewContent', {
-    content_id: 'sistema_milionario_297',
-    content_name: 'Sistema Milionário',
-    content_type: 'product',
-    value: 297,
-    currency: 'BRL',
-    event_id: 'vc_' + Date.now()
-  });
-
-})(window, document, 'ttq');
+}(window, document, 'ttq'));
 
 
-/* =========================================
-   INITIATE CHECKOUT – CLIQUE REAL KIWIFY
-   ========================================= */
-document.addEventListener("DOMContentLoaded", function () {
+// 🔥 VIEW CONTENT
+ttq.track('ViewContent', {
+  content_id: 'sistema_milionario_297',
+  content_name: 'Sistema Milionário',
+  content_type: 'product',
+  price: 297,
+  value: 297,
+  currency: 'BRL'
+});
 
-  var checkoutLinks = document.querySelectorAll(
-    "a[href*='pay.kiwify.com.br'], a[href*='kiwify.com.br']"
-  );
 
-  checkoutLinks.forEach(function(link) {
-    link.addEventListener("click", function() {
+// 🛒 ADD TO CART – CAPTURA QUALQUER BOTÃO DA KIWIIFY
+document.addEventListener("click", function(e) {
+  var el = e.target.closest("a, button");
 
-      if (window.ttq) {
-        ttq.track('InitiateCheckout', {
-          content_id: 'sistema_milionario_297',
-          content_name: 'Sistema Milionário',
-          content_type: 'product',
-          value: 297,
-          currency: 'BRL',
-          event_id: 'ic_' + Date.now()
-        });
-      }
+  if (!el) return;
 
+  var href = el.getAttribute("href") || "";
+
+  if (
+    href.includes("pay.kiwify.com.br") ||
+    href.includes("kiwify.com.br") ||
+    el.innerText.toLowerCase().includes("comprar") ||
+    el.innerText.toLowerCase().includes("finalizar") ||
+    el.innerText.toLowerCase().includes("quero")
+  ) {
+    ttq.track('AddToCart', {
+      content_id: 'sistema_milionario_297',
+      content_name: 'Sistema Milionário',
+      content_type: 'product',
+      price: 297,
+      value: 297,
+      currency: 'BRL'
     });
-  });
-
+  }
 });
 </script>
