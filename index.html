@@ -2,7 +2,7 @@
 /* ================================
    TIKTOK PIXEL – SETUP COMPLETO
    ================================ */
-!function (w, d, t) {
+(function (w, d, t) {
   w.TiktokAnalyticsObject = t;
   var ttq = w[t] = w[t] || [];
   ttq.methods = [
@@ -40,7 +40,7 @@
     a.parentNode.insertBefore(o, a);
   };
 
-  /* 🔑 SEU PIXEL ID */
+  /* 🔑 SEU PIXEL */
   ttq.load('D5C2DRC77UD7S54P8NG');
   ttq.page();
 
@@ -56,7 +56,7 @@
     event_id: 'vc_' + Date.now()
   });
 
-}(window, document, 'ttq'));
+})(window, document, 'ttq');
 
 
 /* =========================================
@@ -71,14 +71,16 @@ document.addEventListener("DOMContentLoaded", function () {
   checkoutLinks.forEach(function(link) {
     link.addEventListener("click", function() {
 
-      ttq.track('InitiateCheckout', {
-        content_id: 'sistema_milionario_297',
-        content_name: 'Sistema Milionário',
-        content_type: 'product',
-        value: 297,
-        currency: 'BRL',
-        event_id: 'ic_' + Date.now()
-      });
+      if (window.ttq) {
+        ttq.track('InitiateCheckout', {
+          content_id: 'sistema_milionario_297',
+          content_name: 'Sistema Milionário',
+          content_type: 'product',
+          value: 297,
+          currency: 'BRL',
+          event_id: 'ic_' + Date.now()
+        });
+      }
 
     });
   });
