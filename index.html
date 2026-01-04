@@ -35,9 +35,10 @@
 
 }(window, document, 'ttq'));
 
-// 🚀 VIEW CONTENT
+
+// 🔥 VIEW CONTENT
 ttq.track('ViewContent', {
-  content_id: 'sistema_milionario',
+  content_id: 'sistema_milionario_297',
   content_name: 'Sistema Milionário',
   content_type: 'product',
   price: 297,
@@ -45,19 +46,29 @@ ttq.track('ViewContent', {
   currency: 'BRL'
 });
 
-// 🛒 ADD TO CART
-document.addEventListener("DOMContentLoaded", function() {
-  var btn = document.getElementById("addToCart");
-  if(btn){
-    btn.addEventListener("click", function(){
-      ttq.track('AddToCart', {
-        content_id: 'sistema_milionario',
-        content_name: 'Sistema Milionário',
-        content_type: 'product',
-        price: 297,
-        value: 297,
-        currency: 'BRL'
-      });
+
+// 🛒 ADD TO CART – CAPTURA QUALQUER BOTÃO DA KIWIIFY
+document.addEventListener("click", function(e) {
+  var el = e.target.closest("a, button");
+
+  if (!el) return;
+
+  var href = el.getAttribute("href") || "";
+
+  if (
+    href.includes("pay.kiwify.com.br") ||
+    href.includes("kiwify.com.br") ||
+    el.innerText.toLowerCase().includes("comprar") ||
+    el.innerText.toLowerCase().includes("finalizar") ||
+    el.innerText.toLowerCase().includes("quero")
+  ) {
+    ttq.track('AddToCart', {
+      content_id: 'sistema_milionario_297',
+      content_name: 'Sistema Milionário',
+      content_type: 'product',
+      price: 297,
+      value: 297,
+      currency: 'BRL'
     });
   }
 });
